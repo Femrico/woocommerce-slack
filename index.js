@@ -5,6 +5,7 @@ const request = require('request');
 const crypto = require('crypto');
 
 const app = express();
+const website = "https://femrico.com";
 
 const rawBodySaver = (req, res, buf, encoding) => {
     if (buf && buf.length) {
@@ -27,7 +28,7 @@ function buildSlackMessage(body) {
                         "type": "section",
                         "text": {
                             "type": "mrkdwn",
-                            "text": `Order <https://femrico.com/wp-admin/post.php?post=${body.id}&action=edit|#${body.id}>`
+                            "text": `Order <${website}/wp-admin/post.php?post=${body.id}&action=edit|#${body.id}>`
                         }
                     },
                     {
